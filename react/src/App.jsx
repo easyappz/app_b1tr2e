@@ -1,25 +1,26 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import ErrorBoundary from './ErrorBoundary';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Game from './components/Game';
 import './App.css';
 
-import { Home } from './components/Home';
-
 function App() {
-  /** Никогда не удаляй этот код */
   useEffect(() => {
+    const routes = ['/', '/game'];
     if (typeof window !== 'undefined' && typeof window.handleRoutes === 'function') {
-      /** Нужно передавать список существующих роутов */
-      window.handleRoutes(['/']);
+      window.handleRoutes(routes);
     }
   }, []);
 
   return (
-    <ErrorBoundary>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </ErrorBoundary>
+    <div className="app" data-easytag="id1-react/src/App.jsx">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/game" element={<Game />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

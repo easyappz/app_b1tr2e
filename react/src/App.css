@@ -1,38 +1,91 @@
-.App {
+:root {
+  --bg-dark: #0d0f1a;
+  --bg-darker: #090a12;
+  --primary: #00ffd1;
+  --accent: #ff2f6d;
+  --text: #e6f1ff;
+  --muted: #9fb0c7;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+  color: var(--text);
+}
+
+/* Pixel feel */
+* { image-rendering: pixelated; }
+
+.menu-screen, .game-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.menu-card {
+  width: 720px;
+  max-width: 92vw;
+  background: #121428;
+  border: 4px solid #1d2040;
+  box-shadow: 0 0 0 4px #0b0d1a, 0 10px 40px rgba(0,0,0,0.6), inset 0 0 40px rgba(0, 255, 209, 0.07);
+  border-radius: 8px;
+  padding: 32px 28px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-family: monospace;
+  font-size: 48px;
+  letter-spacing: 2px;
+  margin: 0 0 12px 0;
+  text-shadow: 0 0 8px rgba(0,255,209,0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.subtitle {
+  font-family: monospace;
+  color: var(--muted);
+  margin: 0 0 24px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn {
+  font-family: monospace;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 14px 22px;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.1s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary {
+  background: var(--primary);
+  color: #001a14;
+  border: 4px solid #00d7b2;
+  box-shadow: 0 4px 0 #00aa8e, 0 0 16px rgba(0,255,209,0.4);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-primary:active { transform: translateY(1px); }
+
+.help {
+  margin-top: 28px;
+  text-align: left;
+  border-top: 2px dashed #273052;
+  padding-top: 18px;
 }
+
+.help h2 {
+  font-family: monospace;
+  margin: 0 0 8px 0;
+}
+
+.help ul {
+  margin: 0 0 8px 18px;
+}
+
+.note { color: var(--muted); }
+
+/* Game placeholder container */
+.container { max-width: 920px; margin: 0 auto; }
